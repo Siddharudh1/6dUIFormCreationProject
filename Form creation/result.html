@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>
+            Reslult
+        </title>
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body>
+        <div class="detail">
+        <h1> ---------Your details---------</h1>
+        <h2>
+        firstName     : <span  id="result-fname"></span>
+        <h2>
+        lastName      :<span  id="result-lname"></span>  
+        </h2>
+        <h2>
+        age           :<span  id="result-age"></span>  
+        </h2>
+        <h2>
+        address       :<span  id="result-address"></span>  
+        </h2>
+        <h2>
+        mobileNumber  :<span  id="result-mob"></span>  
+        </h2>
+        <h2>
+        emailid       :<span  id="result-email"></span>  
+        </h2>
+        <h2>
+         dateofBirth   :<span  id="result-dob"></span>  
+        </h2>
+        <a href="registration.html">click here go back</a>
+    </div>
+    
+    <script type="text/javascript">
+        document.getElementById("result-fname").innerHTML = localStorage.getItem("FNAME");
+        document.getElementById("result-lname").innerHTML = localStorage.getItem("LNAME");
+        document.getElementById("result-age").innerHTML = localStorage.getItem("AGE");
+        document.getElementById("result-address").innerHTML = localStorage.getItem("ADDRESS");
+        document.getElementById("result-mob").innerHTML = localStorage.getItem("MOBILENO");
+        document.getElementById("result-email").innerHTML = localStorage.getItem("EMAIL");
+        document.getElementById("result-dob").innerHTML = localStorage.getItem("DOB");
+    </script>
+
+   
+    </body>
+</html>

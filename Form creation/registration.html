@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<head>
+    <title>Registration Form</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<script type="text/Javascript">
+        function callValue() {
+            var fname= document.getElementById("fname").value;
+            var lname = document.getElementById("lname").value;
+            var age = document.getElementById("age").value;
+            var address = document.getElementById("address").value;
+            var mobilenumber = document.getElementById("mob").value;
+            var email = document.getElementById("email").value;
+            var dateofbirth = document.getElementById("dob").value;
+
+            localStorage.setItem("FNAME",fname);
+            localStorage.setItem("LNAME",lname);
+            localStorage.setItem("AGE",age);
+            localStorage.setItem("ADDRESS",address);
+            localStorage.setItem("MOBILENO",mobilenumber);
+            localStorage.setItem("EMAIL",email);
+            localStorage.setItem("DOB",dateofbirth);
+            return false;
+        }
+   
+</script>
+<body>
+    <div class="container">
+        <div class="title">Registration Form</div>
+        <form action="result.html" id="form1" onsubmit="return validation()">
+            <div class="user-details">
+                <div class="input-box">
+                    <span class="details">firstName </span>
+                    <input type = "text" placeholder="Enter your fname" id="fname" required >
+                    <li>Enter alphabet only</li>
+                </div>
+                <div class="input-box">
+                    <span class="details">lastName</span>
+                    <input type = "text" placeholder="Enter your lname" id ="lname" required>
+                    <li>Enter alphabet only</li>
+                </div>
+                <div class="input-box">
+                    <span class="details">age </span>
+                    <input type = "number" placeholder="Enter your age" id="age" required>
+                    <li>Enter valid age</li>
+                </div>
+                <div class="input-box">
+                    <span class="details">address</span>
+                    <input type="text" placeholder="Enter your address" id="address" required>
+                </div>
+                <div class="input-box">
+                    <span class="details">mobileNumber</span>
+                    <input type = "number" placeholder="Enter your mobileNumber" id="mob" required>
+                </div>
+                <div class="input-box">
+                    <span class="details">emailid </span>
+                    <input type = "email" placeholder="Enter your emailid" id="email"required>
+                    <li>Enter valid email</li>
+                </div>
+                <div class="input-box">
+                    <span class="details">dateofBirth</span>
+                    <input type = "date" placeholder="Enter your dateofBirth" id="dob" required>
+                </div>
+            </div>
+            <div class="button">
+                <input type="submit" value="submit" onclick="callValue();">
+            </div>
+        </form>
+
+        <script type="text/javascript">
+            function validation(){
+                var first_name = document.forms["form1"]["fname"].value;
+                var last_name = document.forms["form1"]["lname"].value;
+                var mobilenumber =document.forms["form1"]["mob"].value;
+                var age = document.forms["form1"]["age"].value;
+                var letter = /^[a-zA-Z]*$/;
+                var num =document.forms["form1"]["mob"].value;
+
+                // firstname validation
+                if(!isNaN(first_name) )
+                {
+                    alert("Enter alphabet only for firstname");
+                    return false;
+                }
+                 if(!first_name.match(letter))
+                 {
+                     alert("enter the alphabet only firstname");
+                     return false;
+                 }
+
+                // lastname validation
+                if(!isNaN(last_name))
+                {
+                    alert("Enter alphabet only");
+                    return false;
+                }
+                if(!last_name.match(letter))
+                {
+                    alert("enter the alphabet only");
+                    return false;
+                }
+                if(age < 1 || age > 100  )                
+                {
+                    alert("age should be between 1-100 numbers");
+                    return false;
+                }
+                if(num.length!=10)
+                {
+                    alert("Mobilenumber must be 10 digits");
+                    return false;
+                }
+            }
+        </script>
+    </div>
+</body>
